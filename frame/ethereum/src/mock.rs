@@ -22,7 +22,7 @@ use ethereum::{TransactionAction, TransactionSignature};
 use frame_support::{
 	impl_outer_origin, parameter_types, weights::Weight, ConsensusEngineId
 };
-use pallet_evm::{FeeCalculator, HashTruncateConvertAccountId};
+use pallet_evm::{FeeCalculator, EnsureAddressNever, IdentityAddressMapping};
 use rlp::*;
 use sp_core::{H160, H256, U256};
 use sp_runtime::{
@@ -40,12 +40,14 @@ impl_outer_origin! {
 // configuration traits of pallets we want to use.
 #[derive(Clone, Eq, PartialEq)]
 pub struct Test;
+
 parameter_types! {
 	pub const BlockHashCount: u64 = 250;
 	pub const MaximumBlockWeight: Weight = 1024;
 	pub const MaximumBlockLength: u32 = 2 * 1024;
 	pub const AvailableBlockRatio: Perbill = Perbill::from_percent(75);
 }
+
 impl frame_system::Trait for Test {
 	type BaseCallFilter = ();
 	type SystemWeightInfo = ();
@@ -121,10 +123,14 @@ parameter_types! {
 }
 
 impl pallet_evm::Trait for Test {
-	type ModuleId = EVMModuleId;
 	type FeeCalculator = FixedGasPrice;
-	type ConvertAccountId = HashTruncateConvertAccountId<BlakeTwo256>;
+
+	type CallOrigin = EnsureAddressNever<Self::AccountId>;
+	type WithdrawOrigin = EnsureAddressNever<Self::AccountId>;
+
+	type AddressMapping = IdentityAddressMapping;
 	type Currency = Balances;
+
 	type Event = ();
 	type Precompiles = ();
 	type ChainId = ChainId;
@@ -145,8 +151,8 @@ pub struct AccountInfo {
 	pub private_key: H256,
 }
 
-fn address_build(seed: u8) -> (H256, H160) {
-	let private_key = H256::from_slice(&[(seed + 1) as u8; 32]); //H256::from_low_u64_be((i + 1) as u64);
+fn address_build(seed: u64) -> (H256, H160) {
+	let private_key = H256::from_low_u64_be((seed + 1) as u64);
 	let secret_key = secp256k1::SecretKey::parse_slice(&private_key[..]).unwrap();
 	let public_key = secp256k1::PublicKey::from_secret_key(&secret_key);
 	let address = H160::from(H256::from_slice(
@@ -165,7 +171,7 @@ pub fn new_test_ext(accounts_len: usize) -> (Vec<AccountInfo>, sp_io::TestExtern
 
 	let pairs = (0..accounts_len)
 		.map(|i| {
-			let (private_key, address) = address_build(i as u8);
+			let (private_key, address) = address_build(i as u64);
 			AccountInfo {
 				private_key: private_key,
 				address: address,

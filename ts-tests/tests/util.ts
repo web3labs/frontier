@@ -8,7 +8,7 @@ export const SPECS_PATH = `./frontier-test-specs`;
 export const DISPLAY_LOG = process.env.FRONTIER_LOG || false;
 export const FRONTIER_LOG = process.env.FRONTIER_LOG || "info";
 
-export const BINARY_PATH = `../target/debug/frontier-test-node`;
+export const BINARY_PATH = `../target/debug/frontier-template-node`;
 export const SPAWNING_TIME = 30000;
 
 export async function customRequest(web3: Web3, method: string, params: any[]) {
@@ -46,7 +46,7 @@ export async function createAndFinalizeBlock(web3: Web3) {
 export async function startFrontierNode(specFilename: string): Promise<{ web3: Web3; binary: ChildProcess }> {
 	const web3 = new Web3(`http://localhost:${RPC_PORT}`);
 
-	const cmd = `../target/debug/frontier-test-node`;
+	const cmd = `../target/debug/frontier-template-node`;
 	const args = [
 		`--chain=${SPECS_PATH}/${specFilename}`,
 		`--validator`, // Required by manual sealing to author the blocks
@@ -64,7 +64,7 @@ export async function startFrontierNode(specFilename: string): Promise<{ web3: W
 	binary.on("error", (err) => {
 		if ((err as any).errno == "ENOENT") {
 			console.error(
-				`\x1b[31mMissing Frontier binary (${BINARY_PATH}).\nPlease compile the Frontier project:\ncargo build --bin frontier-test-node\x1b[0m`
+				`\x1b[31mMissing Frontier binary (${BINARY_PATH}).\nPlease compile the Frontier project:\ncargo build --bin frontier-template-node\x1b[0m`
 			);
 		} else {
 			console.error(err);

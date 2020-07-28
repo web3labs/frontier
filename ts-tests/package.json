@@ -1,13 +1,12 @@
 {
-  "name": "ts-tests",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "frontier-ts-tests",
+  "version": "0.1.0",
+  "description": "Frontier typescript tests.",
   "scripts": {
     "test": "mocha -r ts-node/register 'tests/**/*.ts'"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Parity Technologies <admin@parity.io>",
+  "license": "GPL-3.0",
   "dependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^8.0.0",

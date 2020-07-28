@@ -44,21 +44,6 @@ fn default_erc20_creation_transaction(account: &AccountInfo) -> Transaction {
 }
 
 #[test]
-fn transaction_should_increment_nonce() {
-	let (pairs, mut ext) = new_test_ext(1);
-	let alice = &pairs[0];
-
-	ext.execute_with(|| {
-		Ethereum::execute(
-			alice.address,
-			default_erc20_creation_transaction(alice),
-		);
-		assert_eq!(Evm::accounts(alice.address).nonce, U256::from(1));
-	});
-}
-
-
-#[test]
 fn transaction_should_be_added_to_pending() {
 	let (pairs, mut ext) = new_test_ext(1);
 	let alice = &pairs[0];

@@ -308,7 +308,7 @@ pub fn new_light(config: Configuration) -> Result<TaskManager, ServiceError> {
 		network,
 		network_status_sinks,
 		system_rpc_tx,
-	 })?;
+	})?;
 
-	 Ok(task_manager)
+	Ok(task_manager)
 }

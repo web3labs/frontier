@@ -51,7 +51,7 @@ A very direct way of solving this problem is looking into the implementation of 
 			T::CallOrigin::ensure_address_origin(&source, origin)?;
 ```
 
-And having evidence that there is some `origin` checking, will be nice to know how is this origin being checked, for that looking for the `pallet_evm::Config` implementation in the [runtime](https://github.com/paritytech/frontier/blob/master/template/runtime/src/lib.rs#L290):
+And having evidence that there is some `origin` checking, will be nice to know how is this origin being checked, for that looking for the `pallet_evm::Config` implementation in the [runtime](https://github.com/paritytech/frontier/blob/master/template/runtime/src/lib.rs#L285):
 
 ```
 		type CallOrigin = EnsureAddressTruncated;

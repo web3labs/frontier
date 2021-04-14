@@ -17,7 +17,7 @@ Secret Key URI `/Alice` is account:
 ```
 - Substrate node. Is assumed that a [Frontier](https://github.com/paritytech/frontier) node is already configured.
 
-Allright! The next step will be look for what extrinsics does the [evm-pallet](https://github.com/paritytech/frontier/blob/master/docs/frame/evm.md) provide to create our contract. Reading through [pallet documentation](https://substrate.dev/rustdocs/v2.0.0/pallet_evm/index.html) the dispatchable call `create(H160, Vec<u8>, U256, u32, U256, Option<U256>)` shows up, this call issues an EVM create operation. This is similar to a contract creation transaction in Ethereum. Therefore will be the one used. 
+Alright! The next step will be look for what extrinsics does the [evm-pallet](https://github.com/paritytech/frontier/blob/master/docs/frame/evm.md) provide to create our contract. Reading through [pallet documentation](https://substrate.dev/rustdocs/v2.0.0/pallet_evm/index.html) the dispatchable call `create(H160, Vec<u8>, U256, u32, U256, Option<U256>)` shows up, this call issues an EVM create operation. This is similar to a contract creation transaction in Ethereum. Therefore will be the one used. 
 
 Having a look into the source of the pallet, the create function is implemented as follows
 

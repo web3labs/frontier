@@ -3,9 +3,9 @@ import { expect } from "chai";
 import { createAndFinalizeBlock, customRequest, describeWithFrontier } from "./util";
 
 describeWithFrontier("Frontier RPC (Constructor Revert)", (context) => {
-	const GENESIS_ACCOUNT = "0x6be02d1d3665660d22ff9624b7be0551ee1ac91b";
+	const GENESIS_ACCOUNT = "0xd43593c715fdd31c61141abd04a99fd6822c8558";
 	const GENESIS_ACCOUNT_PRIVATE_KEY =
-		"0x99B3C12287537E38C90A9219D4CB074A89A16E9CDB20BF85728EBD97C343E342";
+		"0xe5be9a5092b81bca64be81d212e7f2f9eba183bb7a90954f7b76361f6edb5c0a";
 
 	// ```
 	// pragma solidity >=0.4.22 <0.7.0;
@@ -49,7 +49,7 @@ describeWithFrontier("Frontier RPC (Constructor Revert)", (context) => {
 			blockNumber: 1,
 			contractAddress: '0xC2Bf5F29a4384b1aB0C063e1c666f02121B6084a',
 			cumulativeGasUsed: 67231,
-			from: '0x6be02d1d3665660d22ff9624b7be0551ee1ac91b',
+			from: '0xd43593c715fdd31c61141abd04a99fd6822c8558',
 			gasUsed: 67231,
 			to: null,
 			transactionHash: '0xae813c533aac0719fbca4db6e3bb05cfb5859bdeaaa7dc5c9dbd24083301be8d',
@@ -89,7 +89,7 @@ describeWithFrontier("Frontier RPC (Constructor Revert)", (context) => {
 			blockNumber: 2,
 			contractAddress: '0x5c4242beB94dE30b922f57241f1D02f36e906915',
 			cumulativeGasUsed: 54600,
-			from: '0x6be02d1d3665660d22ff9624b7be0551ee1ac91b',
+			from: '0xd43593c715fdd31c61141abd04a99fd6822c8558',
 			gasUsed: 54600,
 			to: null,
 			transactionHash: '0x640df9deb183d565addc45bdc8f95b30c7c03ce7e69df49456be9929352e4347',

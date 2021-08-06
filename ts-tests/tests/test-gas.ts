@@ -5,7 +5,7 @@ import { describeWithFrontier, createAndFinalizeBlock } from "./util";
 import { AbiItem } from "web3-utils";
 
 describeWithFrontier("Frontier RPC (Gas)", (context) => {
-	const GENESIS_ACCOUNT = "0x6be02d1d3665660d22ff9624b7be0551ee1ac91b";
+	const GENESIS_ACCOUNT = "0xd43593c715fdd31c61141abd04a99fd6822c8558";
 
 	const TEST_CONTRACT_BYTECODE = Test.bytecode;
 	const TEST_CONTRACT_ABI = Test.abi as AbiItem[];

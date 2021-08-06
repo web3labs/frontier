@@ -2,15 +2,15 @@ import Web3 from "web3";
 import { JsonRpcResponse } from "web3-core-helpers";
 import { spawn, ChildProcess } from "child_process";
 
-export const PORT = 19931;
-export const RPC_PORT = 19932;
-export const WS_PORT = 19933;
+export const PORT = 1931;
+export const RPC_PORT = 1932;
+export const WS_PORT = 1933;
 
 export const DISPLAY_LOG = process.env.FRONTIER_LOG || false;
 export const FRONTIER_LOG = process.env.FRONTIER_LOG || "info";
 
 export const BINARY_PATH = `../target/debug/frontier-template-node`;
-export const SPAWNING_TIME = 30000;
+export const SPAWNING_TIME = 10000;
 
 export async function customRequest(web3: Web3, method: string, params: any[]) {
 	return new Promise<JsonRpcResponse>((resolve, reject) => {
@@ -54,10 +54,10 @@ export async function startFrontierNode(provider?: string): Promise<{ web3: Web3
 	const args = [
 		`--chain=dev`,
 		`--validator`, // Required by manual sealing to author the blocks
-		`--execution=Native`, // Faster execution using native
+		// `--execution=Native`, // Faster execution using native - will be deprecated soon!
 		`--no-telemetry`,
 		`--no-prometheus`,
-		`--sealing=Manual`,
+		`--sealing=Manual`, // Uncomment to Try without AuRa Build
 		`--no-grandpa`,
 		`--force-authoring`,
 		`-l${FRONTIER_LOG}`,

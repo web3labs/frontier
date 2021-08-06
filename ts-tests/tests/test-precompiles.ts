@@ -4,8 +4,8 @@ import { createAndFinalizeBlock, customRequest, describeWithFrontier } from "./u
 import { AbiItem } from "web3-utils";
 
 describeWithFrontier("Frontier RPC (Precompile)", (context) => {
-	const GENESIS_ACCOUNT = "0x6be02d1d3665660d22ff9624b7be0551ee1ac91b";
-	const GENESIS_ACCOUNT_PRIVATE_KEY = "0x99B3C12287537E38C90A9219D4CB074A89A16E9CDB20BF85728EBD97C343E342";
+	const GENESIS_ACCOUNT = "0xd43593c715fdd31c61141abd04a99fd6822c8558";
+	const GENESIS_ACCOUNT_PRIVATE_KEY = "0xe5be9a5092b81bca64be81d212e7f2f9eba183bb7a90954f7b76361f6edb5c0a";
 
 	const TEST_CONTRACT_BYTECODE = ECRecoverTests.bytecode;
 	const TEST_CONTRACT_ABI = ECRecoverTests.abi as AbiItem[];

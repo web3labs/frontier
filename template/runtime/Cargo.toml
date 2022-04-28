@@ -57,7 +57,7 @@ pallet-evm-precompile-sha3fips = { path = "../../frame/evm/precompile/sha3fips",
 pallet-evm-precompile-simple = { path = "../../frame/evm/precompile/simple", default-features = false }
 
 [build-dependencies]
-substrate-wasm-builder = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.19", }
+substrate-wasm-builder = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.19" }
 
 [features]
 default = ["std", "aura"]

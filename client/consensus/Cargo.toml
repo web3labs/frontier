@@ -12,7 +12,7 @@ async-trait = "0.1"
 thiserror = "1.0"
 
 sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.19" }
-sc-consensus = { version = "0.10.0-dev", git = "https://github.com/paritytech/substrate", branch = "master" }
+sc-consensus = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.19" }
 sp-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.19" }
 sp-block-builder = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.19" }
 sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.19" }

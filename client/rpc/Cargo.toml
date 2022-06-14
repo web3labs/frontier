@@ -15,7 +15,7 @@ ethereum = { version = "0.12.0", features = ["with-codec"] }
 evm = { git = "https://github.com/rust-blockchain/evm", rev = "01bcbd2205a212c34451d3b4fabc962793b057d3" }
 futures = "0.3.21"
 hex = "0.4.3"
-log = "0.4.16"
+log = "0.4.17"
 lru = "0.7.6"
 prometheus = { version = "0.13.1", default-features = false }
 rand = "0.8"

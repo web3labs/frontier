@@ -22,7 +22,7 @@ scale-info = { version = "2.1.2", default-features = false, features = ["derive"
 # Substrate
 sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.23", default-features = false }
 # Substrate FRAME
-frame-support = { vgit = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.23", default-features = false }
+frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.23", default-features = false }
 
 [features]
 default = ["std"]
